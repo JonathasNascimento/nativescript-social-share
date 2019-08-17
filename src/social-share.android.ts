@@ -19,12 +19,12 @@ function share(intent, subject) {
   shareIntent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
   context.startActivity(shareIntent);
 }
-function useAndroidX () {
+function useAndroidX() {
   return global.androidx && global.androidx.appcompat;
 }
 
-export function shareImage(image, subject) {
-  numberOfImagesCreated ++;
+export function shareImage(image, subject, extraText) {
+  numberOfImagesCreated++;
 
   context = application.android.context;
 
@@ -50,6 +50,9 @@ export function shareImage(image, subject) {
     shareableFileUri = android.net.Uri.fromFile(newFile);
   }
   intent.putExtra(android.content.Intent.EXTRA_STREAM, shareableFileUri);
+  if (extraText) {
+    intent.putExtra(android.content.Intent.EXTRA_TEXT, extraText);
+  }
 
   share(intent, subject);
 }

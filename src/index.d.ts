@@ -5,7 +5,7 @@ import { ImageSource } from "tns-core-modules/image-source";
  * @param {ImageSource} image - The image to share.
  * @param {string} [subject] - The subject of the share *** ANDROID ONLY ***
  */
-export function shareImage(image?: ImageSource, subject?: string);
+export function shareImage(image?: ImageSource, subject?: string, extraText?: string);
 
 /**
  * Share text.
